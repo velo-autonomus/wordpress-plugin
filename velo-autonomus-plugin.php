@@ -46,14 +46,38 @@ function velo_button_shortcode( $atts = [], $content = null, $tag = '' ) {
     // return output
     return $o;
 }
+
+function velo_supporter_shortcode( $atts = [], $content = null, $tag = '' ) {
+    // normalize attribute keys, lowercase
+    $atts = array_change_key_case( (array) $atts, CASE_LOWER );
+ 
+    // override default attributes with user attributes
+    $wporg_atts = shortcode_atts(
+        array(
+            'link' => './',
+            'img' => '',
+            'alt' => ''
+        ), $atts, $tag
+    );
+ 
+    // start box
+    $o = '<a href="'.esc_url( $wporg_atts['link'] ).'" target="_blank" rel="noreferrer" class="supporter"><img src="'.esc_url( $wporg_atts['img']).'" alt="'.esc_html__( $wporg_atts['alt'] ).'" />';
+ 
+    $o .= '</a>';
+ 
+    // return output
+    return $o;
+}
  
 /**
  * Central location to create all shortcodes.
  */
 function velo_shortcodes_init() {
     add_shortcode( 'velo-button', 'velo_button_shortcode' );
+    add_shortcode( 'velo-supporter', 'velo_supporter_shortcode' );
 }
- 
+
+
 add_action( 'init', 'velo_shortcodes_init' );
 
 /**

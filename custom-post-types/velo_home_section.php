@@ -38,12 +38,13 @@ function velo_home_section_type_box_html($post)
     ?>
     <label for="velo_home_section_type">Section-Typ:</label><br><br>
     <select type="text" name='velo_home_section_type' value="<?php echo $value;?>" style='width: 100%;'>
-        <option value='right-text'>Bild links</option>
-        <option value='left-text'>Bild rechts</option>
-        <option value='top-text'>Bild unten</option>
-        <option value='overlay-text'>Nur Bild</option>
-        <option value='only-text'>Nur Text</option>
-        <option value='center'>Mittig</option>
+        <option value='right-text' <?php if($value=='right-text'){echo 'selected';}?>>Bild links</option>
+        <option value='left-text' <?php if($value=='left-text'){echo 'selected';}?>>Bild rechts</option>
+        <option value='top-text' <?php if($value=='top-text'){echo 'selected';}?>>Bild unten</option>
+        <option value='overlay-text' <?php if($value=='overlay-text'){echo 'selected';}?>>Nur Bild</option>
+        <option value='only-text' <?php if($value=='only-text'){echo 'selected';}?>>Nur Text</option>
+        <option value='center' <?php if($value=='center'){echo 'selected';}?>>Mittig</option>
+        <option value='supporters' <?php if($value=='supporters'){echo 'selected';}?>>Unterstützer</option>
     </select>
     <?php
 }
